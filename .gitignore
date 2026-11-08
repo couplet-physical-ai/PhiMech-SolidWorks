@@ -1,0 +1,57 @@
+# .NET / Visual Studio build output
+bin/
+obj/
+out/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+.vs/
+.vscode/
+*.swp
+
+# NuGet
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/build/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test results and coverage
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+
+# SolidWorks interop DLLs are licensed redistributables; never commit them.
+lib/SolidWorks/*.dll
+
+# Installer output
+*.msi
+*.msp
+*.wixpdb
+*.wixobj
+
+# Code signing material must never enter the repository.
+*.pfx
+*.snk
+
+# OS noise
+.DS_Store
+Thumbs.db
+
+# SolidWorks scratch files
+~$*.sldprt
+~$*.sldasm
+*.sldlck
+out-build-info.txt
+
+# Python bytecode (scripts/drawing-standard/ imports neutral_names.py)
+__pycache__/
+
+# Local agent worktrees (Claude Code); never commit them
+.claude/worktrees/

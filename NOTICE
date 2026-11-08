@@ -1,0 +1,8 @@
+PhiMech SolidWorks
+Copyright 2026 Exowatt, Inc.
+
+Created at Exowatt, Inc. (https://exowatt.com). Original code is licensed
+under the Apache License, Version 2.0. The SOLIDWORKS vendor SDK and interop
+assemblies are not included and are governed by their own license.
+
+Third-party dependency: Newtonsoft.Json, MIT license, installed via NuGet (not bundled here).
