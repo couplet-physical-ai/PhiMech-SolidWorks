@@ -12,11 +12,11 @@ Experimental: **build unverified locally; CI is the check.** This machine has no
 
 ## Prerequisites
 
-Windows x64 with a licensed SolidWorks installation for running the add-in. Obtain the SolidWorks API interop assemblies (`SolidWorks.Interop.sldworks.dll`, `swconst.dll`, `swpublished.dll`) from your own licensed installation; no proprietary DLLs are bundled. Use the .NET SDK 8+ and .NET Framework 4.8 targeting pack to build. For optional printing, install/configure OrcaSlicer and a compatible local PhiMech CLI separately.
+Windows x64 with a licensed SolidWorks installation for running the add-in. Obtain the SolidWorks API interop assemblies (`SolidWorks.Interop.sldworks.dll`, `swconst.dll`, `swpublished.dll`) from your own licensed installation's `api\redist` directory via `SolidWorksApiDir`; real Dassault DLLs are never committed to this repository. Use the .NET SDK 8+ and .NET Framework 4.8 targeting pack to build. For optional printing, install/configure OrcaSlicer and a compatible local PhiMech CLI separately.
 
 ## Install / build
 
-Compile-only check with the documentation-derived stubs (Windows; no SolidWorks seat needed):
+Compile-only check with the hand-written stubs (Windows; no SolidWorks seat needed):
 
 ```powershell
 dotnet build src/PhiMech.SolidWorks/PhiMech.SolidWorks.csproj
@@ -44,7 +44,7 @@ In SolidWorks, register the real-interop assembly by your vendor-documented COM-
 
 ## Stub provenance
 
-`stubs/SolidWorks.Interop.Stubs/` holds **three compile-only, hand-written files from public SOLIDWORKS API Help** (`sldworks.cs`, `swconst.cs`, `swpublished.cs`). They provide only the members this add-in uses: interface signatures and placeholder enum names/values, **not vendor constants** or implementations. See [stub notes](stubs/SolidWorks.Interop.Stubs/README.md). Delete `stubs/` and set `SolidWorksApiDir` to build against your installed interop assemblies. These documentation-based stubs warrant vendor-license/legal review before any public release.
+`stubs/SolidWorks.Interop.Stubs/` holds **three independently hand-written, compile-only stand-ins** (`sldworks.cs`, `swconst.cs`, `swpublished.cs`) based only on publicly documented interface/enum names and signatures. They provide only the members this add-in uses: interface signatures and placeholder enum names/values, **not vendor constants**, documentation prose, or implementations. See [stub notes](stubs/SolidWorks.Interop.Stubs/README.md). For a real build, use your own licensed SOLIDWORKS installation's `api\redist` interop DLLs through `SolidWorksApiDir`; the real Dassault DLLs are never committed. Delete `stubs/` to avoid accidentally using them in a runtime build. These stand-ins warrant vendor-license/legal review before any public release.
 
 ## License
 
