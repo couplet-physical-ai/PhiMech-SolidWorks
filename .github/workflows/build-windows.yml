@@ -1,0 +1,21 @@
+name: Windows compile-only check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  stub-build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+      - name: Build .NET Framework 4.8 add-in against documentation-derived stubs
+        run: dotnet build src/PhiMech.SolidWorks/PhiMech.SolidWorks.csproj --configuration Release --nologo
+      - name: Run seat-free smoke tests
+        run: dotnet test tests/PhiMech.SolidWorks.Tests/PhiMech.SolidWorks.Tests.csproj --configuration Release --nologo
