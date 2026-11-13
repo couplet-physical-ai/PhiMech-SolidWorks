@@ -51,7 +51,7 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.4" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies.net48" Version="1.0.3" PrivateAssets="all" />
     <None Include="..\..\contracts\design-ir.schema.json" Link="contracts\design-ir.schema.json" CopyToOutputDirectory="PreserveNewest" />
     <None Include="Resources\icons\*.png" CopyToOutputDirectory="PreserveNewest" />
